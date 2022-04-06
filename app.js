@@ -1,3 +1,7 @@
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const Teammanager = require('./lib/Teammeanager');
+
 const createTeammanager = [
     {
         type:'input',
@@ -21,7 +25,7 @@ const createTeammanager = [
     }
 ]
 
-const engineer = [
+const createEngineer = [
     {
         type: 'input',
         name: 'name',
@@ -29,7 +33,7 @@ const engineer = [
     },
     {
         type: 'input',
-        name: 'Employee ID', 
+        name: 'EmployeeID', 
         message: 'What is the engineers Employee ID?',
     },
     {
@@ -45,7 +49,7 @@ const engineer = [
 
 ]
 
-const inter = [
+const createIntern = [
     {
         type: 'input',
         name: 'name',
