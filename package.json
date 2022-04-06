@@ -1,0 +1,26 @@
+{
+  "name": "only-party",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paquito81/only-party.git"
+  },
+  "keywords": [],
+  "author": "Hector Palacios <paquito1981@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Paquito81/only-party/issues"
+  },
+  "homepage": "https://github.com/Paquito81/only-party#readme",
+  "dependencies": {
+    "inquirer": "^8.2.2"
+  }
+}
