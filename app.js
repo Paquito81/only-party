@@ -1,8 +1,11 @@
-const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern');
+const Pizzamaker = require('./lib/Pizzamaker');
+const Delivery = require('./lib/Delivery');
 const Teammanager = require('./lib/Teammeanager');
-
+const inquirer = require('inquirer');
+const fs = require('fs');
+// create questions for team
 const createTeammanager = [
+    inquirer.prompt
     {
         type:'input',
         name: 'name',
@@ -25,7 +28,7 @@ const createTeammanager = [
     }
 ]
 
-const createEngineer = [
+const createPizzamaker = [
     {
         type: 'input',
         name: 'name',
@@ -49,16 +52,16 @@ const createEngineer = [
 
 ]
 
-const createIntern = [
+const createDelivery = [
     {
         type: 'input',
         name: 'name',
-        message: 'What is the inters name?',
+        message: 'What is the interns name?',
     },
     {
         type: 'input',
         name: 'Employee ID',
-        message: 'What is the inters employee ID?',
+        message: 'What is the interns employee ID?',
     },
     {
         type: 'input',
