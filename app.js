@@ -5,84 +5,86 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // create questions for team
-const addTeammanager =
+const addTeammanager = () => {
     inquirer.prompt([
-    {
-        type:'input',
-        name: 'name',
-        message: 'What is the team manager name?',
-    },
-    {
-        type: 'input',
-        name: 'Employee ID',
-        message: 'What is the team managers Employee ID?',
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: 'What is the team managers email?',
-    },
-    {
+        {
+            type:'input',
+            name: 'name',
+            message: "What is the team manager's name?",
+        },
+        {
+            type: 'input',
+            name: 'Employee ID',
+            message: "What is the team manager's Employee ID?",
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is the team manager's email?",
+        },
+        {
         type: 'input',
         name: 'office number',
-        message: 'What is the team managers phone number?',
-    }
-])
-.then((answers) => {
+        message: "What is the team manager's phone number?",
+        },
+    ])
+    .then((answers) => {
 
-})
-
-const addPizzamaker =
+    })
+}
+const addPizzamaker = () => {
     inquirer.prompt([
-    {
-        type: 'input',
-        name: 'name',
-        message: 'What is the engineers name?',
-    },
-    {
-        type: 'input',
-        name: 'EmployeeID', 
-        message: 'What is the engineers Employee ID?',
-    },
-    {
+        {
+            type: 'input',
+            name: 'name',
+            message: "What is the pizzamaker's name?",
+        },
+        {
+            type: 'input',
+            name: 'EmployeeID', 
+            message: "What is the pizzamaker's Employee ID?",
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is the pizzamaker's email?",
+        },
+        {
+            type: 'input',
+            name: 'Github', 
+            message: "What is the pizzamaker's Github username?",
+        },
+
+    ])
+    .then((answers) => {
+
+    })
+}
+
+const addDelivery = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: "What is the delivery driver's name?",
+        },
+        {
+            type: 'input',
+            name: 'Employee ID',
+            message: "What is the delivery driver's employee ID?",
+        },
+        {
         type: 'input',
         name: 'email',
-        message: 'What is the engineers email?',
-    },
-    {
-        type: 'input',
-        name: 'Github', 
-        message: 'What is the engineers Github username?',
-    },
-
-])
-.then((answers) => {
-
-})
-
-const addDelivery =
-    inquirer.prompt([
-    {
-        type: 'input',
-        name: 'name',
-        message: 'What is the interns name?',
-    },
-    {
-        type: 'input',
-        name: 'Employee ID',
-        message: 'What is the interns employee ID?',
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: 'What is the inters email?',
-    },
-    {
+        message: "What is the delivery driver's email?",
+        },
+        {
         type: 'input',
         name: 'school',
-        message: 'Where does the inter go to school?',
-    },
-])
-.then((answers) => {
+        message: "Where does the delivery driver go to school?",
+        },
+    ])
+    .then((answers) => {
 
-})
+    }) 
+}    
