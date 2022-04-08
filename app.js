@@ -3,9 +3,10 @@ const Delivery = require('./lib/Delivery');
 const Teammanager = require('./lib/Teammeanager');
 const inquirer = require('inquirer');
 const fs = require('fs');
+
 // create questions for team
-const createTeammanager = [
-    inquirer.prompt
+const addTeammanager =
+    inquirer.prompt([
     {
         type:'input',
         name: 'name',
@@ -26,9 +27,13 @@ const createTeammanager = [
         name: 'office number',
         message: 'What is the team managers phone number?',
     }
-]
+])
+.then((answers) => {
 
-const createPizzamaker = [
+})
+
+const addPizzamaker =
+    inquirer.prompt([
     {
         type: 'input',
         name: 'name',
@@ -50,9 +55,13 @@ const createPizzamaker = [
         message: 'What is the engineers Github username?',
     },
 
-]
+])
+.then((answers) => {
 
-const createDelivery = [
+})
+
+const addDelivery =
+    inquirer.prompt([
     {
         type: 'input',
         name: 'name',
@@ -73,4 +82,7 @@ const createDelivery = [
         name: 'school',
         message: 'Where does the inter go to school?',
     },
-]
+])
+.then((answers) => {
+
+})
