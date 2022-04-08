@@ -29,6 +29,7 @@ const addTeammanager = () => {
         },
     ])
     .then((answers) => {
+        console.log(JSON.stringify(answers, null, ''));
 
     })
 }
@@ -57,8 +58,9 @@ const addPizzamaker = () => {
 
     ])
     .then((answers) => {
+        console.log(JSON.stringify(answers, null, ''));
 
-    })
+    });
 }
 
 const addDelivery = () => {
@@ -85,6 +87,7 @@ const addDelivery = () => {
         },
     ])
     .then((answers) => {
+        console.log(JSON.stringify(answers, null, ''));
 
-    }) 
+    }); 
 }    
