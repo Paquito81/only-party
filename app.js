@@ -1,20 +1,22 @@
-const Pizzamaker = require('./lib/Pizzamaker');
-const Delivery = require('./lib/Delivery');
-const Teammanager = require('./lib/Teammeanager');
+const Intern = require('./lib/Intern');
+const Engineer = require('./lib/Engineer');
+const Teammanager = require('./lib/Teammanager');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+//create an empty array to store team members
+let teamMembers = []
 // create questions for team
 const addTeammanager = () => {
     inquirer.prompt([
         {
-            type:'input',
+            type: 'input',
             name: 'name',
             message: "What is the team manager's name?",
         },
         {
             type: 'input',
-            name: 'Employee ID',
+            name: 'employeeId',
             message: "What is the team manager's Employee ID?",
         },
         {
@@ -23,17 +25,45 @@ const addTeammanager = () => {
             message: "What is the team manager's email?",
         },
         {
-        type: 'input',
-        name: 'office number',
-        message: "What is the team manager's phone number?",
+            type: 'input',
+            name: 'officeNumber',
+            message: "What is the team manager's phone number?",
         },
     ])
-    .then((answers) => {
-        console.log(JSON.stringify(answers, null, ''));
+        .then((answers) => {
+            //console.log('Answer:', answers.name, answers.employeeId, answers.email, answers.officeNumber);
+            const manager = new Teammanager(answers.name, answers.employeeId, answers.email, answers.officeNumber);
+            console.log(manager);
+            teamMembers.push(manager)
 
-    })
+        });
 }
-const addPizzamaker = () => {
+ 
+//create a function to display the menu for building team members
+
+function addTeamMembers() {
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'choice',
+            message: "What team would you like to add?",
+            choices: ["Engineer", "Intern", "none"]
+        },
+    ]) 
+
+}
+function buildTeam() {
+    addTeammanager();
+
+}
+buildTeam()
+
+
+
+
+
+
+const addEngineer = () => {
     inquirer.prompt([
         {
             type: 'input',
@@ -42,7 +72,7 @@ const addPizzamaker = () => {
         },
         {
             type: 'input',
-            name: 'EmployeeID', 
+            name: 'EmployeeID',
             message: "What is the pizzamaker's Employee ID?",
         },
         {
@@ -52,15 +82,18 @@ const addPizzamaker = () => {
         },
         {
             type: 'input',
-            name: 'Github', 
+            name: 'Github',
             message: "What is the pizzamaker's Github username?",
         },
 
     ])
-    .then((answers) => {
-        console.log(JSON.stringify(answers, null, ''));
+         .then((answers) => {
+            //console.log('Answer:', answers.name, answers.employeeId, answers.email, answers.officeNumber);
+            const engineer = new Engineer(answers.name, answers.employeeId, answers.email, answers.github);
+            console.log(engineer);
+            teamMembers.push(engineer)
 
-    });
+        });
 }
 
 const addDelivery = () => {
@@ -76,18 +109,21 @@ const addDelivery = () => {
             message: "What is the delivery driver's employee ID?",
         },
         {
-        type: 'input',
-        name: 'email',
-        message: "What is the delivery driver's email?",
+            type: 'input',
+            name: 'email',
+            message: "What is the delivery driver's email?",
         },
         {
-        type: 'input',
-        name: 'school',
-        message: "Where does the delivery driver go to school?",
+            type: 'input',
+            name: 'school',
+            message: "Where does the delivery driver go to school?",
         },
     ])
     .then((answers) => {
-        console.log(JSON.stringify(answers, null, ''));
+        //console.log('Answer:', answers.name, answers.employeeId, answers.email, answers.officeNumber);
+        const manager = new Teammanager(answers.name, answers.employeeId, answers.email, answers.officeNumber);
+        console.log(manager);
+        teamMembers.push(manager)
 
-    }); 
+    });
 }    
