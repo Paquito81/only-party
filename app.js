@@ -5,7 +5,10 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 //create an empty array to store team members
-let teamMembers = []
+//let teamMembers = [];
+const engineers= [];
+const intern = [];
+const teammanager =[];
 // create questions for team
 const addTeammanager = () => {
     inquirer.prompt([
@@ -39,30 +42,6 @@ const addTeammanager = () => {
         });
 }
  
-//create a function to display the menu for building team members
-
-function addTeamMembers() {
-    inquirer.prompt([
-        {
-            type: 'list',
-            name: 'choice',
-            message: "What team would you like to add?",
-            choices: ["Engineer", "Intern", "none"]
-        },
-    ]) 
-
-}
-function buildTeam() {
-    addTeammanager();
-
-}
-buildTeam()
-
-
-
-
-
-
 const addEngineer = () => {
     inquirer.prompt([
         {
@@ -82,7 +61,7 @@ const addEngineer = () => {
         },
         {
             type: 'input',
-            name: 'Github',
+            name: 'github',
             message: "What is the pizzamaker's Github username?",
         },
 
@@ -95,6 +74,7 @@ const addEngineer = () => {
 
         });
 }
+
 
 const addDelivery = () => {
     inquirer.prompt([
@@ -121,9 +101,28 @@ const addDelivery = () => {
     ])
     .then((answers) => {
         //console.log('Answer:', answers.name, answers.employeeId, answers.email, answers.officeNumber);
-        const manager = new Teammanager(answers.name, answers.employeeId, answers.email, answers.officeNumber);
-        console.log(manager);
-        teamMembers.push(manager)
+        const intern = new Intern(answers.name, answers.employeeId, answers.email, answers.officeNumber);
+        console.log(intern);
+        teamMembers.push(intern)
 
     });
-}    
+} 
+
+//create a function to display the menu for building team members
+
+function addTeamMembers() {
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'choice',
+            message: "What team would you like to add?",
+            choices: ["Engineer", "Intern", "none"]
+        },
+    ]) 
+
+}
+function buildTeam() {
+    addTeammanager();
+
+}
+buildTeam()
