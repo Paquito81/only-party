@@ -7,9 +7,9 @@ const fs = ('fs');
 
 //create an empty array to store team members
 let teamMembers = []
-// const engineers= [];
-// const intern = [];
-// const teammanager =[];
+const engineer= [];
+const intern = []; 
+const teammanager =[];
 
 // create questions for team
 const addTeammanager = () => {
@@ -37,9 +37,10 @@ const addTeammanager = () => {
     ])
         .then((answers) => {
             //console.log('Answer:', answers.name, answers.employeeId, answers.email, answers.officeNumber);
-            const manager = new Teammanager(answers.name, answers.id, answers.email, answers.officeNumber);
-            console.log(manager);
-            teamMembers.push(manager);
+            const noobManager = new Teammanager(answers.name, answers.id, answers.email, answers.officeNumber);
+            console.log(teammanager);
+          teammanager.push(noobManager);
+          addTeamMembers();
 
         });
 }
@@ -70,9 +71,10 @@ const addEngineer = () => {
     ])
          .then((answers) => {
             //console.log('Answer:', answers.name, answers.employeeId, answers.email, answers.officeNumber);
-            const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+            const noobEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
             console.log(engineer);
-            teamMembers.push(engineer)
+            engineer.push(noobEngineer); 
+            addTeamMembers();
 
         });
 }
@@ -103,9 +105,10 @@ const addIntern = () => {
     ])
     .then((answers) => {
         //console.log('Answer:', answers.name, answers.employeeId, answers.email, answers.officeNumber);
-        const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+        const noobIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
         console.log(intern);
-        teamMembers.push(intern)
+        intern.push(noobIntern)
+        addTeamMembers();
 
     });
 } 
@@ -118,7 +121,7 @@ function addTeamMembers () {
             type: 'list',
             name: 'role',
             message: "What teammate would you like to add?",
-            choices: ["Engineer", "Intern", "none"]
+            choices: ["Engineer", "Intern", "Manager"]
         },
     ])
     .then((answers) => {
@@ -130,6 +133,10 @@ function addTeamMembers () {
             case "Intern":
                 addIntern();
                 break;
+
+            case "Manager":
+                addTeammanager();
+                break;    
                 
                 
             default:
