@@ -1,6 +1,5 @@
-const { expect, test } = require('@jest/globals');
-const Employee = require('lib/Employee.js');
+const Employee = require('../lib/Employee');
 
 test('employee name', () => {
-    const employee = new Employee('Hector', )
+    const employee = new Employee()
 })
