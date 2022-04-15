@@ -13,23 +13,59 @@ function generateHTML(team) {
     </head>
     
     <body>
-        <header class="justify-content-center bg-warning text-light flex-row">
-        <h1>Super Team</h1>
+        <header>
+            <div class="container justify-space-between bg-warning text-light flex-row py-3">
+            <h1>Super Team</h1>
+            </div>
         </header>
 
         <main>
+        <div id="super-team" class row row-cols-1 row-cols-sm-2 row-cols-lg-3 justify-content-md-center">    
+            <div class="card-body">
+                <div class="card border-warning mb-3" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <h2>${team[0].role}</h2>
+                        <h3>${team[0].name}</h3>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">ID:${team[0].id}</li>
+                        <li class="list-group-item">Email:<a href="mailto:${team[0].email}">${team[0].email}</a></li>
+                        <li class="list-group-item">Office Number:${team[0].office}</li>
+                    </ul>
 
-        <div class="card border-warning mb-3" style="max-width: 18rem;">
-        <div class="card-header">${team[0].role}</div>
-       <div class="card-body">
-       <h5 class="card-title">Warning card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-</div>
-        <div class=
-        <h2>team manager: ${team[0].name}</h2>
+                </div>
+            </div>  
+            <div class="card-body">
+                <div class="card border-warning mb-3" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <h2>${team[1].role}</h2>
+                        <h3>${team[1].name}</h3>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">ID:${team[1].id}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${team[1].email}">${team[1].email}</a></li>
+                        <li class="list-group-item">Github: <a href="https://github.com/${team[1].github}" target="_blank">${team[1].github}</a></li>
+                    </ul>
+
+                </div>
+            </div> 
+            <div class="card-body">
+                <div class="card border-warning mb-3" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <h2>${team[2].role}</h2>
+                        <h3>${team[2].name}</h3>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">ID:${team[2].id}</li>
+                        <li class="list-group-item">Email:<a href="mailto:${team[2].email}">${team[2].email}</a></li>
+                        <li class="list-group-item">School:${team[2].school}</li>
+                    </ul>
+
+                </div>
+            </div>
+        </main>                                     
     </body>    
         `
-}
+};
 
 module.exports = generateHTML;
