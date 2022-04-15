@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/Paquito81/only-party#readme",
   "dependencies": {
+    "bootstrap": "^5.1.3",
     "inquirer": "^8.2.2",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "mysql2": "^2.3.3"
   }
 }

@@ -1,15 +1,16 @@
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 const Teammanager = require('./lib/Teammanager');
-const Employee = require('./lib/Employee')
+const Employee = require('./lib/Employee');
 const inquirer = require('inquirer');
-const fs = ('fs');
+const fs = require('fs');
+const generateHTML = require('./src/generateHTML')
 
 //create an empty array to store team members
 let teamMembers = []
-const engineer= [];
-const intern = []; 
-const teammanager =[];
+// const engineer= [];
+// const intern = []; 
+// const teammanager =[];
 
 // create questions for team
 const addTeammanager = () => {
@@ -38,9 +39,10 @@ const addTeammanager = () => {
         .then((answers) => {
             //console.log('Answer:', answers.name, answers.employeeId, answers.email, answers.officeNumber);
             const noobManager = new Teammanager(answers.name, answers.id, answers.email, answers.officeNumber);
-            console.log(teammanager);
-          teammanager.push(noobManager);
-          addTeamMembers();
+            // console.log(noobManager);
+            teamMembers.push(noobManager);
+            console.log(teamMembers);
+            addTeamMembers();
 
         });
 }
@@ -69,11 +71,12 @@ const addEngineer = () => {
         },
 
     ])
-         .then((answers) => {
+        .then((answers) => {
             //console.log('Answer:', answers.name, answers.employeeId, answers.email, answers.officeNumber);
             const noobEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-            console.log(engineer);
-            engineer.push(noobEngineer); 
+            //console.log(noobEngineer);
+            teamMembers.push(noobEngineer);
+            console.log(teamMembers); 
             addTeamMembers();
 
         });
@@ -106,8 +109,9 @@ const addIntern = () => {
     .then((answers) => {
         //console.log('Answer:', answers.name, answers.employeeId, answers.email, answers.officeNumber);
         const noobIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
-        console.log(intern);
-        intern.push(noobIntern)
+        //console.log(noobIntern);
+        teamMembers.push(noobIntern);
+        console.log(teamMembers);
         addTeamMembers();
 
     });
@@ -121,7 +125,7 @@ function addTeamMembers () {
             type: 'list',
             name: 'role',
             message: "What teammate would you like to add?",
-            choices: ["Engineer", "Intern", "Manager"]
+            choices: ["Manager", "Engineer", "Intern", "none"]
         },
     ])
     .then((answers) => {
@@ -136,7 +140,10 @@ function addTeamMembers () {
 
             case "Manager":
                 addTeammanager();
-                break;    
+                break;
+                
+            case "none":
+                createHTML();    
                 
                 
             default:
@@ -146,9 +153,22 @@ function addTeamMembers () {
     });
 
 
+};
+
+function createHTML() {
+    console.log("creating HTML");
+    writeToFile();
+} 
+
+addTeamMembers();
+
+function writeToFile() {
+    fs.writeFileSync("./dist/index.html", generateHTML(teamMembers), err => {
+        if (err) throw new Error(err);
+
+    });
 }
 // function buildTeam() {
 //     addTeammanager();
 
 // }
-addTeamMembers();
